@@ -19,8 +19,7 @@ import robomaster
 from robomaster import robot
 import math
 
-radius = 0.05  # meter
-
+radius = 0.05  # wheel radius in meter
 
 def sub_esc_info_handler(esc_info):
     global sensor_speed_ms
@@ -70,17 +69,7 @@ if __name__ == "__main__":
             print(speed, err_speed)
             # ep_chassis.drive_wheels(w1=speed, w2=speed, w3=speed, w4=speed)
             ep_chassis.drive_speed(x=speed, y=0, z=0, timeout=2)
-            # speed_y = (
-            #     (p * err_y)
-            #     + d * ((prev_err_y - err_y) / (prev_time - after_time))
-            #     + i * (accumulate_err_y)
-            # )
-            # ep_gimbal.drive_speed(pitch_speed=-speed_y, yaw_speed=speed_x)
-            # data_pith_yaw.append(
-            #     list(list_of_data)
-            #     + [err_x, err_y, round(speed_x, 3), round(speed_y, 3)]
-            # )
-
+            
         count += 1
         # prev_time = time.time()
         prev_err = err_speed
